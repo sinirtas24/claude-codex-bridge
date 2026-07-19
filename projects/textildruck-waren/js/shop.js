@@ -212,7 +212,7 @@
   function renderOrders(box, orders) {
     if (!orders.length) {
       box.innerHTML = '<div class="empty-state">' + icon("box") + "<p>Noch keine Bestellungen vorhanden.</p>" +
-        '<a class="btn btn-blue btn-sm mt16" href="#/gestalten" data-link>Jetzt gestalten</a></div>';
+        '<a class="btn btn-blue btn-sm mt16" href="#/angebote" data-link>Produkte entdecken</a></div>';
       return;
     }
     box.innerHTML = orders.map(function (o) {
@@ -278,7 +278,7 @@
         '<div class="page-head"><h1>Warenkorb</h1></div>' +
         '<div class="card"><div class="empty-state">' + icon("cart") +
           "<p>Dein Warenkorb ist leer.</p>" +
-          '<a class="btn btn-blue mt16" href="#/gestalten" data-link>Produkt gestalten</a></div></div></div></div>';
+          '<a class="btn btn-blue mt16" href="#/angebote" data-link>Produkte entdecken</a></div></div></div></div>';
       return;
     }
     var subtotal = Cart.cartTotal();
@@ -293,7 +293,7 @@
         (shipping > 0 ? '<div class="muted" style="font-size:12px">Kostenloser Versand ab 50,00 €</div>' : "") +
         '<div class="summary-total"><span>Gesamt</span><span>' + euro(total) + "</span></div>" +
         '<button class="btn btn-blue btn-block mt16" id="to-checkout">Zur Kasse</button>' +
-        '<a class="btn btn-ghost btn-block mt8" href="#/gestalten" data-link>Weiter gestalten</a>' +
+        '<a class="btn btn-ghost btn-block mt8" href="#/angebote" data-link>Weiter einkaufen</a>' +
       "</div></div></div></div>";
 
     bindCartRows(view);
@@ -491,7 +491,7 @@
     var body = products.length
       ? '<div class="plist">' + products.map(Home.productCard).join("") + "</div>"
       : '<div class="card"><div class="empty-state">' + icon("search") + "<p>Keine Produkte gefunden.</p>" +
-        '<a class="btn btn-blue mt16" href="#/gestalten" data-link>Eigenes Produkt gestalten</a></div></div>';
+        '<a class="btn btn-blue mt16" href="#/angebote" data-link>Eigenes Produkte entdecken</a></div></div>';
 
     view.innerHTML = '<div class="page"><div class="container">' +
       '<div class="breadcrumb"><a href="#/" data-link>Startseite</a> / ' + esc(title) + "</div>" +
@@ -524,8 +524,7 @@
           '<p class="muted mb16">Hochwertiger DTF Druck möglich. Wähle Größe und gestalte dein individuelles Design.</p>' +
           '<div class="cust-label">Größe</div><div class="size-row mb16" id="pd-sizes">' +
             sizes.map(function (sz, i) { return '<button class="size-btn' + (i === 1 ? " active" : "") + '" data-size="' + sz + '">' + sz + "</button>"; }).join("") + "</div>" +
-          '<a class="btn btn-orange btn-block" href="#/gestalten?produkt=' + encodeURIComponent(p.name) + '" data-link>' + icon("palette") + "Jetzt gestalten</a>" +
-          '<button class="btn btn-ghost btn-block mt8" id="pd-add">' + icon("cart") + "Direkt in den Warenkorb</button>" +
+          '<button class="btn btn-orange btn-block" id="pd-add">' + icon("cart") + "In den Warenkorb</button>" +
         "</div>" +
       "</div></div></div></div>";
 
@@ -543,23 +542,6 @@
       });
       UI.toast(p.name + " zum Warenkorb hinzugefügt!", "success");
     });
-  }
-
-  /* ============================================================
-     GESTALTEN (Vollseite Konfigurator)
-     ============================================================ */
-  function renderDesign(view, query) {
-    var preset = null;
-    if (query && query.produkt) {
-      var cfg = TWD.get().customizer;
-      var match = cfg.products.filter(function (p) { return p.name === query.produkt; })[0];
-      if (match) preset = match.id;
-    }
-    view.innerHTML = '<div class="page"><div class="container">' +
-      '<div class="breadcrumb"><a href="#/" data-link>Startseite</a> / Produkt gestalten</div>' +
-      '<div class="page-head"><h1>Produkt gestalten</h1><p>Lade dein Logo hoch und sieh die Vorschau in Echtzeit.</p></div>' +
-      '<div id="design-root"></div></div></div>';
-    Customizer.render(qs("#design-root", view), { presetProductId: preset });
   }
 
   /* ============================================================
@@ -681,7 +663,7 @@
   global.Shop = {
     renderAuth: renderAuth, renderAccount: renderAccount, renderCart: renderCart,
     renderCheckout: renderCheckout, renderList: renderList, renderProduct: renderProduct,
-    renderDesign: renderDesign, renderWishlist: renderWishlist, renderStaticPage: renderStaticPage,
+    renderWishlist: renderWishlist, renderStaticPage: renderStaticPage,
     renderTracking: renderTracking, statusBadge: statusBadge, statusTrack: statusTrack, fmtDate: fmtDate
   };
 })(window);
