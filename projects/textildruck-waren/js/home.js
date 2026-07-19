@@ -51,7 +51,7 @@
         "<h1>" + esc(slide.title) + "</h1>" +
         '<p class="hero-sub">' + esc(slide.subtitle) + "</p>" +
         '<ul class="hero-checklist">' + checklist + "</ul>" +
-        '<a class="btn btn-orange" href="#/gestalten" data-link>' + esc(s.hero.ctaText) + " " + icon("arrowRight") + "</a>" +
+        '<a class="btn btn-orange" href="#/angebote" data-link>PRODUKTE ENTDECKEN ' + icon("arrowRight") + "</a>" +
       "</div>" +
       '<div class="hero-right">' +
         visual +
@@ -91,23 +91,6 @@
         block(store, "arbeitskleidung", "#/kategorie/arbeitskleidung") +
       "</div></div></section>" +
 
-      // Kategorien
-      '<section class="blocks" style="padding-top:0"><div class="container">' +
-        '<h2 class="section-title">Unsere Kategorien</h2>' +
-        '<div class="catgrid">' + cats.map(categoryTile).join("") + "</div>" +
-      "</div></section>" +
-
-      // SO EINFACH GEHT'S + Customizer
-      '<section class="easy-section" id="gestalten"><div class="container"><div class="easy-grid">' +
-        '<div class="steps"><h2>SO EINFACH GEHT\'S</h2>' +
-          s.steps.map(function (st, i) {
-            return '<div class="step"><div class="num">' + (i + 1) + "</div>" +
-              '<div class="sc"><b>' + esc(st.title) + "</b><span>" + esc(st.text) + "</span></div></div>";
-          }).join("") +
-        "</div>" +
-        '<div id="customizer-root"></div>' +
-      "</div></div></section>" +
-
       // Trust logos
       '<section class="trust"><div class="container">' +
         "<h4>" + esc(s.trustTitle) + "</h4>" +
@@ -117,8 +100,6 @@
       "</div></section>";
 
     view.innerHTML = html;
-
-    Customizer.render(qs("#customizer-root", view));
     bindProductCards(view);
     bindHeroSlider(view, s);
   }
