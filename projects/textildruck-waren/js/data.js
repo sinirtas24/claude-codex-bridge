@@ -6,7 +6,7 @@
   "use strict";
 
   var STORAGE_KEY = "twd_store_v1";
-  var DATA_VERSION = 4;
+  var DATA_VERSION = 5;
 
   /* ---------- SVG Produkt-Grafiken (selbstständig, keine externen Bilder) ---------- */
   function garmentSVG(type, color, opts) {
@@ -465,9 +465,11 @@
           slide.image2 = defSlide.image2;
         }
       });
-      if (store.settings.hero.slides[0]) {
-        store.settings.hero.slides[0].imageWide = def.settings.hero.slides[0].imageWide;
-      }
+      store.settings.hero.slides.forEach(function (slide, i) {
+        if (def.settings.hero.slides[i] && def.settings.hero.slides[i].imageWide) {
+          slide.imageWide = def.settings.hero.slides[i].imageWide;
+        }
+      });
     }
 
     // Yeni yerel görselleri, kullanıcının sepet ve hesap verilerine dokunmadan uygula.
