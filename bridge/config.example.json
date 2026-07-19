@@ -1,7 +1,8 @@
 {
   "projects_root": "C:\\Users\\Besitzer\\Claude-Denetim-Sistemi\\projects",
   "claude_exe": "C:\\Users\\Besitzer\\.local\\bin\\claude.exe",
-  "codex_exe": "codex",
+  "node_exe": "C:\\Program Files\\nodejs\\node.exe",
+  "codex_js": "C:\\Users\\Besitzer\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\bin\\codex.js",
   "poll_seconds": 20,
   "max_rounds": 3
 }
