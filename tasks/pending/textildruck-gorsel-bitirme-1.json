@@ -1,0 +1,13 @@
+{
+  "id": "textildruck-gorsel-bitirme-1",
+  "project_name": "textildruck-waren",
+  "source_project_path": "C:\\Users\\Besitzer\\Claude-Denetim-Sistemi\\projects\\textildruck-waren",
+  "reference_files": [
+    "references/textildruck/textildruck-referenz.png",
+    "references/textildruck/hero-garments.jpg",
+    "references/textildruck/workwear-lineup.jpg",
+    "references/textildruck/customizer-black-tshirt.jpg"
+  ],
+  "instruction": "Bu, yarım kalan textildruck-waren.de projesinin görsel kalite ve tamamlama görevidir.\n\nÖNCELİK SIRASI:\n1. references/textildruck/textildruck-referenz.png ana tasarım kaynağıdır. Sayfa düzeni, oranlar, boşluklar, kartlar, tipografi, lacivert-turuncu-beyaz renk sistemi ve görsel hiyerarşi bu referansa mümkün olduğunca yakın olmalı.\n2. ChatGPT'nin hazırladığı görselleri mutlaka kullan:\n   - hero-garments.jpg: ana hero alanında.\n   - workwear-lineup.jpg: üç ayrı ürün kartında uygun CSS object-position/crop ile veya proje içinde üç ayrı türev dosyaya bölerek.\n   - customizer-black-tshirt.jpg: canlı ürün özelleştiricisinde.\n3. Aynı görseli ilgisiz ürünlerde tekrar kullanma. Her ürün kartı farklı görünmeli. Mevcut projedeki farklı ve kaliteli ürün görsellerini koru; bozuk, alakasız veya tekrarlanan görselleri değiştir.\n\nANA SAYFA REFERANSTA GÖRÜNEN YAPININ TAMAMINI İÇERMELİ:\n- ince üst hizmet şeridi\n- Textildruck-Waren.de logosu; “-Waren.de” turuncu\n- arama, hesap, istek listesi ve sepet\n- yatay ana menü ve solda lacivert kategori menüsü\n- referansa çok yakın yükseklik/oranlarda hero\n- beş güven/hizmet özelliği\n- Angebote, Bestseller ve Arbeitskleidung ürün blokları\n- “So einfach geht’s” adımları\n- büyük, dengeli ürün özelleştirici\n- müşteri/güven logoları şeridi\n- geniş koyu footer\n\nGÖRSEL KALİTE:\n- Masaüstünde 1440px referans düzenine yakın, profesyonel Alman e-ticaret görünümü.\n- Aşırı büyük yazılar, dev boşluklar, rastgele gradientler, oyuncak görünümlü kartlar veya tek tip görseller kullanma.\n- Kart boyları ve görsel oranları tutarlı olsun.\n- Mobilde menü, ürün blokları ve customizer kırılmadan çalışsın.\n\nİŞLEVLER:\nMevcut çalışan özellikleri silme. Menü, ürün seçimi, renk/beden, baskı konumu, logo yükleme ve canlı önizleme, miktar/fiyat, sepet, üyelik, checkout, sipariş geçmişi ve admin panelini kontrol et. Bozuk butonları düzelt.\n\nAdmin panelde demo/prototip uyarısını koru. Yasal sayfalarda görünen placeholder ifadelerini kaldır. HTML içine yazılan yönetilebilir görsel URL'lerini güvenli biçimde escape et.\n\nBütün JavaScript dosyalarında node --check çalıştır. Son olarak görsel dosya yollarının var olduğunu ve ana sayfanın bunları gerçekten kullandığını doğrula.",
+  "created_at": "2026-07-19T07:50:13.712Z"
+}
