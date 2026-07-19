@@ -36,6 +36,12 @@ export function buildImagePrompt(
   concept: ThumbnailConcept,
   params: { topic: string; style: ThumbnailStyle; expression: Expression; variant: number },
 ) {
+  const titleSafeArea = concept.composition === "subject-left"
+    ? "Reserve the right half as a dark or softly blurred title-safe area."
+    : concept.composition === "subject-right"
+      ? "Reserve the left half as a dark or softly blurred title-safe area."
+      : "Keep the presenter in the upper-middle and reserve the lower third as a dark or softly blurred title-safe band.";
+
   return `
 Create a premium, photorealistic YouTube thumbnail scene in an exact 16:9 composition.
 
@@ -56,7 +62,7 @@ VIDEO CONTEXT:
 LAYOUT RULES:
 - Strong foreground/background separation and cinematic creator lighting.
 - Main face must be large, sharp, emotionally readable and never cropped through the eyes or mouth.
-- Reserve a large uncluttered dark or softly blurred title-safe area on the opposite side of the presenter.
+- ${titleSafeArea}
 - Keep all important content inside a 5% safe margin.
 - Do not generate any letters, words, logos, watermarks, captions, UI text or typographic symbols. The application adds accurate title text later.
 `.trim();
