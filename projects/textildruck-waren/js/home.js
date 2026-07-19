@@ -91,6 +91,14 @@
         block(store, "arbeitskleidung", "#/kategorie/arbeitskleidung") +
       "</div></div></section>" +
 
+      // Visuell starke Kategorien – zwei Karten pro Zeile
+      '<section class="category-showcase"><div class="container">' +
+        '<div class="category-showcase-head"><div><span>TEXTILIEN FÜR JEDEN EINSATZ</span><h2>Unsere Kategorien</h2></div>' +
+        '<p>Entdecke hochwertige Textilien für Freizeit, Arbeit, Teams, Events und nachhaltige Projekte.</p></div>' +
+        '<div class="category-showcase-grid">' +
+          cats.map(function (c, i) { return categoryTile(c, i); }).join("") +
+        "</div></div></section>" +
+
       // Trust logos
       '<section class="trust"><div class="container">' +
         "<h4>" + esc(s.trustTitle) + "</h4>" +
@@ -104,11 +112,15 @@
     bindHeroSlider(view, s);
   }
 
-  function categoryTile(c) {
-    return '<div class="cattile" data-link-cat="' + c.id + '">' +
-      '<div class="catfall" style="background:linear-gradient(135deg,' + c.accent + ',' + TWD.shade(c.accent, -25) + ')">' + icon(c.icon) + "</div>" +
-      '<img src="' + esc(c.image) + '" alt="' + esc(c.name) + '" loading="lazy" onerror="this.style.display=\'none\'">' +
-      '<div class="catlabel"><b>' + esc(c.name) + "</b></div></div>";
+  function categoryTile(c, i) {
+    return '<article class="cattile category-showcase-card" data-link-cat="' + c.id + '">' +
+      '<div class="category-showcase-media sprite-' + i + '">' +
+        '<img src="assets/chatgpt/category-sprite.svg" alt="' + esc(c.name) + '" loading="lazy">' +
+      "</div>" +
+      '<div class="category-showcase-shade"></div>' +
+      '<div class="category-showcase-copy"><div class="category-showcase-icon">' + icon(c.icon) + "</div>" +
+        '<div><h3>' + esc(c.name) + '</h3><span>Produkte entdecken ' + icon("arrowRight") + "</span></div></div>" +
+    "</article>";
   }
 
   function bindProductCards(view) {
