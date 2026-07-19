@@ -1,0 +1,32 @@
+{
+  "name": "thumbnail-studio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "latest",
+    "lucide-react": "latest",
+    "next": "16.2.10",
+    "openai": "6.48.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "sharp": "0.35.3",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "16.2.10",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}
