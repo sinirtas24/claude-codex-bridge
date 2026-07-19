@@ -103,7 +103,8 @@ async function runClaude(config, task, projectPath, review = "") {
 }
 
 async function runCodex(config, task, projectPath) {
-  return run(config.codex_exe, [
+  return run(config.node_exe || process.execPath, [
+    config.codex_js,
     "exec",
     "--sandbox", "read-only",
     "--skip-git-repo-check",
@@ -188,7 +189,11 @@ async function main() {
   const config = readJson(configPath);
   config.projects_root = config.projects_root || path.join(os.homedir(), "Claude-Denetim-Sistemi", "projects");
   config.claude_exe = config.claude_exe || path.join(os.homedir(), ".local", "bin", "claude.exe");
-  config.codex_exe = config.codex_exe || "codex";
+  config.node_exe = config.node_exe || process.execPath;
+  config.codex_js = config.codex_js || path.join(process.env.APPDATA || "", "npm", "node_modules", "@openai", "codex", "bin", "codex.js");
+  if (!fs.existsSync(config.codex_js)) {
+    throw new Error(`Codex dosyası bulunamadı: ${config.codex_js}`);
+  }
   const interval = Math.max(10, Number(config.poll_seconds || 20)) * 1000;
 
   log("Claude–Codex köprüsü hazır. Yeni görevler bekleniyor.");
