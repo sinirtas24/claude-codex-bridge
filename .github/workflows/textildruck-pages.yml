@@ -1,4 +1,5 @@
 name: Textildruck-Waren canlı önizleme
+# Public depo etkinleştirildikten sonra yeniden yayınlandı.
 on:
   push:
     branches: [main]
