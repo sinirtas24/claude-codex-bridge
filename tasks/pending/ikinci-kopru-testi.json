@@ -1,0 +1,8 @@
+{
+  "id": "ikinci-kopru-testi",
+  "project_name": "kopru-testi-2",
+  "instruction": "Köprünün çalıştığını doğrulamak için proje klasöründe kopru-testi.txt adlı bir dosya oluştur. Dosyanın içinde yalnızca 'Claude ve Codex köprüsü başarıyla çalışıyor.' yazsın. Başka dosya oluşturma veya değiştirme.",
+  "reference_files": [],
+  "max_rounds": 2,
+  "created_at": "2026-07-19T07:12:48.029Z"
+}
