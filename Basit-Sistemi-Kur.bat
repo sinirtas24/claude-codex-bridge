@@ -3,6 +3,8 @@ setlocal
 cd /d "%~dp0"
 title Basit Claude Sistemi Kurulumu
 
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'bridge[\\\\/](watcher|simple-watcher)\\.js' -and $_.ProcessId -ne $PID } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
+
 git config user.name "Claude Bridge"
 git config user.email "sinirtas24@users.noreply.github.com"
 
