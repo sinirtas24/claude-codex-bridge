@@ -36,8 +36,6 @@
       switch (seg) {
         case "":
           Home.render(view); break;
-        case "gestalten":
-          Shop.renderDesign(view, query); break;
         case "angebote":
           Shop.renderList(view, { section: "angebote", title: "Angebote", sub: "Jetzt sparen und profitieren!" }); break;
         case "bestseller":
