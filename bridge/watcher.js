@@ -56,7 +56,7 @@ async function syncFromGitHub() {
 }
 
 async function commitAndPush(message) {
-  await git(["add", "tasks", "results"]);
+  await git(["add", "tasks", "results", "projects"]);
   const status = await git(["status", "--porcelain"]);
   if (!status) return;
   await git(["commit", "-m", message]);
@@ -187,7 +187,7 @@ async function main() {
     throw new Error(`Eksik ayar dosyası: ${configPath}`);
   }
   const config = readJson(configPath);
-  config.projects_root = config.projects_root || path.join(os.homedir(), "Claude-Denetim-Sistemi", "projects");
+  config.projects_root = path.join(repoRoot, "projects");
   config.claude_exe = config.claude_exe || path.join(os.homedir(), ".local", "bin", "claude.exe");
   config.node_exe = config.node_exe || process.execPath;
   config.codex_js = config.codex_js || path.join(process.env.APPDATA || "", "npm", "node_modules", "@openai", "codex", "bin", "codex.js");
