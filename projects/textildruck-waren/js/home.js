@@ -160,11 +160,8 @@
     qsa(".dot", dotsWrap).forEach(function (d) {
       d.addEventListener("click", function () { show(parseInt(d.getAttribute("data-i"), 10)); });
     });
-    if (view._heroTimer) clearInterval(view._heroTimer);
-    view._heroTimer = setInterval(function () {
-      if (!document.body.contains(dotsWrap)) { clearInterval(view._heroTimer); return; }
-      show(idx + 1);
-    }, 6000);
+    /* Otomatik geçiş bilinçli olarak kapalıdır: sayfa kullanıcı etkileşimi olmadan
+       hareket etmez. Oklar ve noktalarla manuel geçiş çalışmaya devam eder. */
   }
 
   global.Home = { render: render, productCard: productCard, categoryTile: categoryTile };
