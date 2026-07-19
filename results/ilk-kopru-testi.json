@@ -2,7 +2,9 @@
   "id": "ilk-kopru-testi",
   "project_name": "kopru-testi",
   "project_path": "C:\\Users\\Besitzer\\Claude-Denetim-Sistemi\\projects\\kopru-testi",
-  "status": "working",
+  "status": "failed",
   "started_at": "2026-07-19T07:07:44.351Z",
-  "rounds": []
+  "rounds": [],
+  "finished_at": "2026-07-19T07:08:09.708Z",
+  "error": "spawn codex ENOENT"
 }
