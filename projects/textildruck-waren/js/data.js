@@ -6,7 +6,7 @@
   "use strict";
 
   var STORAGE_KEY = "twd_store_v1";
-  var DATA_VERSION = 5;
+  var DATA_VERSION = 6;
 
   /* ---------- SVG Produkt-Grafiken (selbstständig, keine externen Bilder) ---------- */
   function garmentSVG(type, color, opts) {
@@ -178,19 +178,19 @@
           badgeLines: ["Brillante Farben", "Langlebig & Waschfest"],
           slides: [
             { garment1: "tshirt", color1: "#111827", garment2: "hoodie", color2: "#f9fafb",
-              imageWide: "assets/chatgpt/hero-garments.svg",
+              imageWide: "assets/chatgpt/tshirt-basic-photo.svg",
               image1: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=700&q=70",
               image2: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=700&q=70",
               title: "Textildruck einfach online bestellen!",
               subtitle: "Hochwertiger DTF Druck für Privat und Gewerbe" },
             { garment1: "polo", color1: "#1e3a5f", garment2: "tshirt", color2: "#dc2626",
-              imageWide: "assets/chatgpt/hoodie-premium.svg",
+              imageWide: "assets/chatgpt/hoodie-premium-photo.svg",
               image1: "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=700&q=70",
               image2: "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=700&q=70",
               title: "Deine Teamkleidung individuell bedruckt",
               subtitle: "Vereins- & Firmentextilien in Top Qualität" },
             { garment1: "jacket", color1: "#334155", garment2: "vest", color2: "#facc15",
-              imageWide: "assets/chatgpt/arbeitsjacke.svg",
+              imageWide: "assets/chatgpt/arbeitsjacke-photo.svg",
               image1: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=700&q=70",
               image2: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=700&q=70",
               title: "Robuste Arbeitskleidung mit Logo",
@@ -292,20 +292,20 @@
         // Angebote
         { id: "p-tshirt-basic", name: "T-Shirt Basic", section: "angebote", category: "oberbekleidung",
           price: 7.99, oldPrice: 9.99, discount: 20, garment: "tshirt", color: "#111827",
-          image: "assets/chatgpt/tshirt-basic.svg" },
+          image: "assets/chatgpt/tshirt-basic-photo.svg" },
         { id: "p-hoodie-classic", name: "Hoodie Classic", section: "angebote", category: "oberbekleidung",
           price: 19.99, oldPrice: 23.99, discount: 15, garment: "hoodie", color: "#f3f4f6",
-          image: "assets/chatgpt/hoodie-classic.svg" },
+          image: "assets/chatgpt/hoodie-classic-photo.svg" },
         { id: "p-baumwolltasche", name: "Baumwolltasche", section: "angebote", category: "werbetextilien",
           price: 3.59, oldPrice: 3.99, discount: 10, garment: "tote", color: "#e7d3ab",
-          image: "assets/chatgpt/baumwolltasche.svg" },
+          image: "assets/chatgpt/baumwolltasche-photo.svg" },
         // Bestseller
         { id: "p-tshirt-premium", name: "T-Shirt Premium", section: "bestseller", category: "oberbekleidung",
           price: 8.99, oldPrice: null, discount: 0, garment: "tshirt", color: "#1e3a5f",
-          image: "assets/chatgpt/tshirt-premium.svg" },
+          image: "assets/chatgpt/tshirt-premium-photo.svg" },
         { id: "p-polo-shirt", name: "Polo Shirt", section: "bestseller", category: "oberbekleidung",
           price: 12.99, oldPrice: null, discount: 0, garment: "polo", color: "#e5e7eb",
-          image: "assets/chatgpt/polo-shirt.svg" },
+          image: "assets/chatgpt/polo-shirt-photo.svg" },
         { id: "p-hoodie-premium", name: "Hoodie Premium", section: "bestseller", category: "oberbekleidung",
           price: 24.99, oldPrice: null, discount: 0, garment: "hoodie", color: "#111827",
           image: "assets/chatgpt/hoodie-premium.svg" },
@@ -315,10 +315,10 @@
           image: "assets/chatgpt/arbeitsjacke.svg" },
         { id: "p-arbeitshose", name: "Arbeitshose", section: "arbeitskleidung", category: "arbeitskleidung",
           price: 29.99, oldPrice: null, discount: 0, garment: "pants", color: "#1e293b",
-          image: "assets/chatgpt/arbeitshose.svg" },
+          image: "assets/chatgpt/arbeitshose-photo.svg" },
         { id: "p-warnweste", name: "Warnweste", section: "arbeitskleidung", category: "arbeitskleidung",
           price: 4.99, oldPrice: null, discount: 0, garment: "vest", color: "#facc15",
-          image: "assets/chatgpt/warnweste.svg" },
+          image: "assets/chatgpt/warnweste-photo.svg" },
         // Werbetextilien (weitere)
         { id: "p-werbekappe", name: "Werbekappe", section: "sortiment", category: "werbetextilien",
           price: 5.99, oldPrice: null, discount: 0, garment: "cap", color: "#1e3a5f",
