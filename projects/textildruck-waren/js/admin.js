@@ -299,8 +299,6 @@
         '<div class="form-group"><label>Widerrufsbelehrung</label><textarea class="form-control" id="lp-widerrufsbelehrung" rows="8">' + esc(s.legalPages.widerrufsbelehrung) + "</textarea></div>" +
       "</div>" +
       '<div class="card"><div class="admin-section-title">Weitere Texte</div>' +
-        field("Konfigurator-Titel", "c-title", s.customizerTitle) +
-        field("Konfigurator-Untertitel", "c-subtitle", s.customizerSubtitle) +
         field("Copyright", "s-copyright", s.copyright) +
       "</div>" +
       '<button class="btn btn-blue" id="save-content">' + icon("check") + "Alle Inhalte speichern</button>";
@@ -362,7 +360,6 @@
       st.legalPages.datenschutz = qs("#lp-datenschutz", box).value;
       st.legalPages.agb = qs("#lp-agb", box).value;
       st.legalPages.widerrufsbelehrung = qs("#lp-widerrufsbelehrung", box).value;
-      st.customizerTitle = qs("#c-title", box).value; st.customizerSubtitle = qs("#c-subtitle", box).value;
       st.copyright = qs("#s-copyright", box).value;
       TWD.save();
       Layout.mountChrome();
