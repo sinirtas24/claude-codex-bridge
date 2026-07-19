@@ -34,11 +34,12 @@ export function wrapTitle(title: string, maxChars = 13) {
 
 function overlaySvg(concept: ThumbnailConcept) {
   const lines = wrapTitle(concept.title);
+  const centered = concept.composition === "subject-center";
   const titleOnLeft = concept.composition !== "subject-left";
-  const x = titleOnLeft ? 68 : 1212;
-  const anchor = titleOnLeft ? "start" : "end";
-  const fontSize = lines.some((line) => line.length > 14) ? 72 : 82;
-  const startY = 240 - (lines.length - 1) * 36;
+  const x = centered ? 640 : titleOnLeft ? 68 : 1212;
+  const anchor = centered ? "middle" : titleOnLeft ? "start" : "end";
+  const fontSize = centered ? (lines.some((line) => line.length > 16) ? 60 : 68) : (lines.some((line) => line.length > 14) ? 72 : 82);
+  const startY = centered ? 470 - (lines.length - 1) * 28 : 240 - (lines.length - 1) * 36;
   const accent = /^#[0-9a-f]{6}$/i.test(concept.accentColor) ? concept.accentColor : "#ffbd2e";
 
   const text = lines.map((line, index) => {
@@ -46,21 +47,23 @@ function overlaySvg(concept: ThumbnailConcept) {
     return `<text x="${x}" y="${startY + index * (fontSize + 7)}" text-anchor="${anchor}" fill="${fill}" stroke="#08090b" stroke-width="13" paint-order="stroke" stroke-linejoin="round">${escapeXml(line)}</text>`;
   }).join("");
 
-  const badgeX = titleOnLeft ? 68 : 960;
+  const badgeX = centered ? 514 : titleOnLeft ? 68 : 960;
+  const badgeY = centered ? 625 : 535;
+  const hookY = centered ? 675 : 585;
   return Buffer.from(`
     <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="shade" x1="0" x2="1">
-          <stop offset="0" stop-color="#000" stop-opacity="${titleOnLeft ? ".72" : ".02"}"/>
-          <stop offset=".52" stop-color="#000" stop-opacity=".08"/>
-          <stop offset="1" stop-color="#000" stop-opacity="${titleOnLeft ? ".02" : ".72"}"/>
+        <linearGradient id="shade" x1="${centered ? ".5" : "0"}" y1="${centered ? "0" : ".5"}" x2="${centered ? ".5" : "1"}" y2="${centered ? "1" : ".5"}">
+          <stop offset="0" stop-color="#000" stop-opacity="${centered ? ".02" : titleOnLeft ? ".72" : ".02"}"/>
+          <stop offset=".52" stop-color="#000" stop-opacity="${centered ? ".1" : ".08"}"/>
+          <stop offset="1" stop-color="#000" stop-opacity="${centered ? ".82" : titleOnLeft ? ".02" : ".72"}"/>
         </linearGradient>
         <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="8" flood-opacity=".65"/></filter>
       </defs>
       <rect width="1280" height="720" fill="url(#shade)"/>
       <g font-family="Arial Black, DejaVu Sans" font-weight="900" font-size="${fontSize}" letter-spacing="-2" filter="url(#shadow)">${text}</g>
-      <rect x="${badgeX}" y="535" width="252" height="6" rx="3" fill="${accent}"/>
-      <text x="${titleOnLeft ? 68 : 1212}" y="585" text-anchor="${anchor}" fill="#f4f4f5" font-family="Arial, DejaVu Sans" font-weight="700" font-size="24" letter-spacing="2">${escapeXml(concept.hook.toLocaleUpperCase("tr-TR").slice(0, 34))}</text>
+      <rect x="${badgeX}" y="${badgeY}" width="252" height="6" rx="3" fill="${accent}"/>
+      <text x="${x}" y="${hookY}" text-anchor="${anchor}" fill="#f4f4f5" font-family="Arial, DejaVu Sans" font-weight="700" font-size="24" letter-spacing="2">${escapeXml(concept.hook.toLocaleUpperCase("tr-TR").slice(0, 34))}</text>
     </svg>
   `);
 }
