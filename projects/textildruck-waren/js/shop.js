@@ -515,8 +515,8 @@
     var sizes = store.customizer.sizes;
     view.innerHTML = '<div class="page"><div class="container">' +
       '<div class="breadcrumb"><a href="#/" data-link>Startseite</a> / ' + (cat ? '<a href="#/kategorie/' + cat.id + '" data-link>' + esc(cat.name) + "</a> / " : "") + esc(p.name) + "</div>" +
-      '<div class="card"><div class="grid2">' +
-        '<div class="pimg" style="aspect-ratio:1/1;background:var(--gray-50);border-radius:10px;padding:30px"><img src="' + esc(img) + '" alt="' + esc(p.name) + '" style="width:100%;height:100%;object-fit:contain"' + onerr + "></div>" +
+      '<div class="card product-detail-card"><div class="grid2 product-detail-grid">' +
+        '<div class="product-detail-image"><img src="' + esc(img) + '" alt="' + esc(p.name) + '"' + onerr + "></div>" +
         '<div><h1 style="font-size:26px;font-weight:800">' + esc(p.name) + "</h1>" +
           (cat ? '<div class="muted mt8">' + esc(cat.name) + "</div>" : "") +
           '<div style="margin:16px 0"><span style="font-size:28px;font-weight:800;color:' + (p.section === "angebote" ? "var(--orange)" : "var(--dark)") + '">ab ' + euro(p.price) + "</span>" +
@@ -583,10 +583,10 @@
     var pages = {
       "kontakt": {
         title: "Kontakt",
-        html: '<div class="grid2"><div><p class="mb16">Du hast Fragen zu Produkten, Druck oder deiner Bestellung? Wir sind für dich da!</p>' +
+        html: '<div class="grid2 contact-layout"><div class="contact-info"><p class="mb16">Du hast Fragen zu Produkten, Druck oder deiner Bestellung? Wir sind für dich da!</p>' +
           '<div style="line-height:2;font-size:15px"><b>' + esc(c.company) + "</b><br>" + esc(c.street) + "<br>" + esc(c.city) + "<br>" + esc(c.country) +
-          '<div class="fcontact-row mt16" style="display:flex;gap:8px;align-items:center;color:var(--gray-700)">' + icon("phone") + esc(c.phone) + "</div>" +
-          '<div style="display:flex;gap:8px;align-items:center;color:var(--gray-700)">' + icon("chat") + esc(c.email) + "</div></div></div>" +
+          '<div class="contact-row mt16">' + icon("phone") + '<span>' + esc(c.phone) + "</span></div>" +
+          '<div class="contact-row">' + icon("chat") + '<span>' + esc(c.email) + "</span></div></div></div>" +
           '<form id="contact-form"><div class="form-group"><label>Name</label><input class="form-control" required></div>' +
           '<div class="form-group"><label>E-Mail</label><input class="form-control" type="email" required></div>' +
           '<div class="form-group"><label>Nachricht</label><textarea class="form-control" rows="4" required></textarea></div>' +
