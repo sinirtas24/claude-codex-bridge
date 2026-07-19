@@ -101,6 +101,22 @@ function makePrompt(task, projectPath) {
   ].join("\n\n");
 }
 
+function importExistingProject(task, projectPath) {
+  const source = task.source_project_path;
+  if (!source || !fs.existsSync(source)) return;
+  const visibleEntries = fs.readdirSync(projectPath).filter((name) => name !== ".gitkeep");
+  if (visibleEntries.length) return;
+  log(`Mevcut proje içeri alınıyor: ${source}`);
+  fs.cpSync(source, projectPath, {
+    recursive: true,
+    force: false,
+    filter: (item) => {
+      const name = path.basename(item).toLowerCase();
+      return name !== "node_modules" && name !== ".git" && name !== "dist" && name !== "build";
+    },
+  });
+}
+
 async function runClaude(task, projectPath) {
   const env = { ...process.env };
   delete env.ANTHROPIC_API_KEY;
@@ -133,6 +149,7 @@ async function processTask(pendingFile) {
   const resultFile = path.join(resultsRoot, `${id}.json`);
 
   fs.mkdirSync(projectPath, { recursive: true });
+  importExistingProject(task, projectPath);
   fs.mkdirSync(path.dirname(workingFile), { recursive: true });
   fs.renameSync(pendingFile, workingFile);
   const result = {
